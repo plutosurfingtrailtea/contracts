@@ -1,0 +1,39 @@
+{
+  "name": "sale",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "clean": "npx hardhat clean",
+    "test": "npx hardhat test",
+    "sepolia:sale": "npx hardhat run --network sepolia scripts/deploy-sale.ts",
+    "eth:sale": "npx hardhat run --network eth scripts/deploy-sale-eth.ts",
+    "bsc:sale": "npx hardhat run --network bsc scripts/deploy-sale-bsc.ts",
+    "sepolia:verify-dai": "npx hardhat verify --network sepolia 0xB949A29Bb24DA81Bd713Ae3442677Ad39d527783 --contract contracts/DAI.sol:DAI",
+    "sepolia:verify-usdc": "npx hardhat verify --network sepolia 0x6D3F1208D1d184A06bE770cE655b805581886976 --contract contracts/USDC.sol:USDC",
+    "sepolia:verify-storage": "npx hardhat verify --network sepolia 0xCF520fCfbAD8D256277993b609348E0049b6dadE --contract contracts/Storage.sol:Storage 0x055944AfC65CA2C8d11826A7Ec55Defc6E907d3b",
+    "sepolia:verify-coinsale": "npx hardhat verify --network sepolia 0x6C9e4EC956A8505DABda0Ec0F5B0f73788805184 --contract contracts/CoinSale.sol:CoinSale 0xCF520fCfbAD8D256277993b609348E0049b6dadE 0x694AA1769357215DE4FAC081bf1f309aDC325306 3600",
+    "sepolia:verify-erc20sale": "npx hardhat verify --network sepolia 0xcDf53d063b4d37480CBEfA57B920ef629007eA18 --contract contracts/Erc20Sale.sol:Erc20Sale --constructor-args verify/Erc20Sale.ts",
+    "eth:verify-storage": "npx hardhat verify --network eth 0xD505DE0C61271c51c8fdBE377557F73D5BCe03d0 --contract contracts/Storage.sol:Storage 0xCE30537A0e81795A4142110B46060EB05c987C70",
+    "eth:verify-coinsale": "npx hardhat verify --network eth 0x6e70CCf080AA39C595BfB27008ACc4AcF1Ab7D9A --contract contracts/CoinSale.sol:CoinSale 0xD505DE0C61271c51c8fdBE377557F73D5BCe03d0 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419 5460",
+    "eth:verify-erc20sale": "npx hardhat verify --network eth 0x598f9de873aCd4B3e263054B2Ed3e4A1F74067B0 --contract contracts/Erc20Sale.sol:Erc20Sale --constructor-args verify/Erc20Sale_ETH.ts",
+    "bsc:verify-storage": "npx hardhat verify --network bsc 0xD505DE0C61271c51c8fdBE377557F73D5BCe03d0 --contract contracts/Storage.sol:Storage 0xCE30537A0e81795A4142110B46060EB05c987C70",
+    "bsc:verify-coinsale": "npx hardhat verify --network bsc 0x6e70CCf080AA39C595BfB27008ACc4AcF1Ab7D9A --contract contracts/CoinSale.sol:CoinSale 0xD505DE0C61271c51c8fdBE377557F73D5BCe03d0 0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE 3600",
+    "bsc:verify-erc20sale": "npx hardhat verify --network bsc 0x598f9de873aCd4B3e263054B2Ed3e4A1F74067B0 --contract contracts/Erc20Sale.sol:Erc20Sale --constructor-args verify/Erc20Sale_BSC.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ledger": "^1.0.2",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "bignumber.js": "^9.1.2",
+    "chai-bignumber": "^3.1.0",
+    "dotenv": "^16.3.1",
+    "hardhat": "^2.20.0"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.8.0",
+    "@openzeppelin/contracts": "^5.0.1"
+  }
+}
